@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analítica</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <h4>Panel de herramientas</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="#">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Analíticas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Configuraciones</a></li>
+                </ul>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <h2>Progreso de empleados</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <canvas id="chart1"></canvas>
+                    </div>
+                    <div class="col-md-6">
+                        <canvas id="chart2"></canvas>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <canvas id="chart3"></canvas>
+                    </div>
+                    <div class="col-md-6">
+                        <canvas id="chart4"></canvas>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx1 = document.getElementById('chart1').getContext('2d');
+        var chart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Juan', 'Maria', 'Pedro', 'Ana', 'Luis', 'Sofia'],
+                datasets: [{
+                    label: 'Cumplimiento',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var ctx2 = document.getElementById('chart2').getContext('2d');
+        var chart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Juan', 'Maria', 'Pedro', 'Ana', 'Luis', 'Sofia'],
+                datasets: [{
+                    label: 'Asistencia',
+                    data: [10, 15, 5, 2, 20, 30],
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        var ctx3 = document.getElementById('chart3').getContext('2d');
+        var chart3 = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Rojo', 'Azul', 'Amarillo'],
+                datasets: [{
+                    label: 'Dataset 3',
+                    data: [10, 20, 30],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        var ctx4 = document.getElementById('chart4').getContext('2d');
+        var chart4 = new Chart(ctx4, {
+            type: 'doughnut',
+            data: {
+                labels: ['Rojo', 'Azul', 'Amarillo'],
+                datasets: [{
+                    label: 'Dataset 4',
+                    data: [10, 20, 30],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>
